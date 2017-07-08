@@ -1,0 +1,31 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/security
+http://www.springframework.org/schema/security/spring-security-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <http access-denied-page="/error403.jsp">
+        <intercept-url pattern="/index*" access="ROLE_USER" />
+        <intercept-url pattern="/contact/*" access="ROLE_USER" />
+        <intercept-url pattern="/contact*" access="ROLE_USER" />
+        <intercept-url pattern="/add/user/*" access="ROLE_ANONYMOUS" />
+        <intercept-url pattern="/add/contact/*" access="ROLE_USER" />
+        <intercept-url pattern="/delete/contact/*" access="ROLE_ADMIN" />
+        <form-login login-page="/login" default-target-url="/index"
+                    authentication-failure-url="/login?error=true" />
+        <logout logout-url="/logout" logout-success-url="/index" />
+
+        <anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
+        <remember-me />
+    </http>
+
+    <authentication-manager>
+        <authentication-provider>
+            <jdbc-user-service data-source-ref="dataSource"
+                               authorities-by-username-query="Select username, role from users left join userrole on user_id = users.id LEFT JOIN roles on roles.id = role_id where username = ?"/>
+            <password-encoder hash="sha" />
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>
