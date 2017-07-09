@@ -32,6 +32,15 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PhotoController</servlet-name>
+        <servlet-class>net.schastny.contactmanager.web.PhotoController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PhotoController</servlet-name>
+        <url-pattern>/add/photo</url-pattern>
+    </servlet-mapping>
+
     <!-- Фильтр для перекодировки в utf8 -->
     <filter>
         <filter-name>charsetFilter</filter-name>

@@ -34,8 +34,6 @@ public class RoleDAOImpl implements RoleDAO {
     public Role getById(Integer id) {
         Role role = (Role) sessionFactory.getCurrentSession().load(
                 Role.class, id);
-        role.getId();
-        role.getRole();
         return role;
     }
 }

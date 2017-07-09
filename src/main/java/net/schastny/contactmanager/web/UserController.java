@@ -2,10 +2,8 @@ package net.schastny.contactmanager.web;
 
 import com.google.common.base.Charsets;
 import com.google.common.hash.Hashing;
-import net.schastny.contactmanager.domain.Contact;
 import net.schastny.contactmanager.domain.Role;
 import net.schastny.contactmanager.domain.User;
-import net.schastny.contactmanager.service.ContactService;
 import net.schastny.contactmanager.service.RoleService;
 import net.schastny.contactmanager.service.UserService;
 import net.schastny.contactmanager.validators.RegistrationForm;

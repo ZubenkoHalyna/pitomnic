@@ -1,8 +1,6 @@
 package net.schastny.contactmanager.service;
 
-import net.schastny.contactmanager.dao.ContractDAO;
 import net.schastny.contactmanager.dao.UserDAO;
-import net.schastny.contactmanager.domain.Contact;
 import net.schastny.contactmanager.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;

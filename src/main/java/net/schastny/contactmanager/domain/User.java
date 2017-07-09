@@ -11,7 +11,7 @@ public class User {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "USERNAME")
@@ -20,7 +20,7 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "ENABLED")
+    @Column(name = "ENABLED", columnDefinition = "tinyint(1) DEFAULT 1")
     private boolean enabled;
 
     @ManyToMany(cascade = CascadeType.ALL)

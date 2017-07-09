@@ -8,7 +8,7 @@ import java.util.List;
 public class Role {
     @Id
     @Column(name = "ID")
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "ROLE")

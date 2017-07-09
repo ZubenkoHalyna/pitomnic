@@ -8,11 +8,11 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd http://ww
 
     <http access-denied-page="/error403.jsp">
         <intercept-url pattern="/index*" access="ROLE_USER" />
-        <intercept-url pattern="/contact/*" access="ROLE_USER" />
-        <intercept-url pattern="/contact*" access="ROLE_USER" />
+        <intercept-url pattern="/news/*" access="ROLE_USER" />
+        <intercept-url pattern="/news*" access="ROLE_USER" />
         <intercept-url pattern="/add/user/*" access="ROLE_ANONYMOUS" />
-        <intercept-url pattern="/add/contact/*" access="ROLE_USER" />
-        <intercept-url pattern="/delete/contact/*" access="ROLE_ADMIN" />
+        <intercept-url pattern="/add/news/*" access="ROLE_USER" />
+        <intercept-url pattern="/delete/news/*" access="ROLE_ADMIN" />
         <form-login login-page="/login" default-target-url="/index"
                     authentication-failure-url="/login?error=true" />
         <logout logout-url="/logout" logout-success-url="/index" />

@@ -1,6 +1,5 @@
 package net.schastny.contactmanager.dao;
 
-import net.schastny.contactmanager.domain.Contact;
 import net.schastny.contactmanager.domain.User;
 
 import java.util.List;

@@ -1,3 +1,13 @@
+DELETE FROM userrole;
+DROP TABLE userrole;
+DROP TABLE users;
+DROP TABLE roles;
+DELETE FROM newsphoto;
+DROP TABLE newsphoto;
+DROP TABLE photo;
+DROP TABLE news;
+
+
 CREATE TABLE users (
   id int(11) NOT NULL AUTO_INCREMENT,
   username varchar(20) NOT NULL,
@@ -6,7 +16,6 @@ CREATE TABLE users (
   PRIMARY KEY (id),
   UNIQUE KEY users_username_uindex (username)
 );
-
 
 create table roles (
   id INT AUTO_INCREMENT PRIMARY KEY ,
