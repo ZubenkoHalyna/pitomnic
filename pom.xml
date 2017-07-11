@@ -154,6 +154,13 @@
             <version>5.1.38</version>
         </dependency>
 
+        <!--Postgres-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4.1208</version>
+        </dependency>
+
         <!--Servlet-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
