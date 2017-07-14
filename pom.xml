@@ -10,7 +10,7 @@
     <packaging>war</packaging>
 
     <build>
-        <finalName>pitomnik</finalName>
+        <finalName>pitomnic</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
