@@ -12,9 +12,11 @@ public class Photo {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-    @Lob
-    @Column(name ="photo", columnDefinition="BLOB")
-    private Blob photo;
+   // @Lob
+    @Column(name ="photo")//, columnDefinition="BLOB")
+    private byte[] photo;
+    //MySQL
+    //private Blob photo;
 
     @Column(name = "extention")
     private String extention;
@@ -38,11 +40,11 @@ public class Photo {
         this.id = id;
     }
 
-    public Blob getPhoto() {
+    public byte[] getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Blob photo) {
+    public void setPhoto(byte[] photo) {
         this.photo = photo;
     }
 

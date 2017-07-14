@@ -8,6 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <title>${news.title}</title>
+    <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
 </head>
 <body>
 

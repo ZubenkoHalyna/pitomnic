@@ -62,7 +62,7 @@ public class NewsController {
         map.put("news", new News());
         map.put("photolist", new ArrayList<Photo>());
 
-        return "../views/addnews";
+        return "addnews";
     }
 
     @RequestMapping(value = "/info/news/{newsId}", method = RequestMethod.GET)
@@ -71,7 +71,7 @@ public class NewsController {
         map.put("news", newsService.getById(newsId));
         map.put("photoIdList", photoService.getByNewsId(newsId));
 
-        return "../views/newsInfo";
+        return "newsInfo";
     }
 
     @RequestMapping(value = "/edit/news/{newsId}", method = RequestMethod.GET)
@@ -80,7 +80,7 @@ public class NewsController {
         map.put("news", newsService.getById(newsId));
         map.put("photoIdList", photoService.getByNewsId(newsId));
 
-        return "../views/editNews";
+        return "editNews";
     }
 
     @RequestMapping(value = "/add/news", method = RequestMethod.POST)

@@ -48,7 +48,8 @@ public class PhotoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        Blob blob = photoService.getById(id).getPhoto();
+        //MySQL
+        /*Blob blob = photoService.getById(id).getPhoto();
 
         byte byteArray[] = new byte[0];
         try {
@@ -60,6 +61,13 @@ public class PhotoController extends HttpServlet {
         response.setContentType("image/jpg");
         OutputStream os = response.getOutputStream();
         os.write(byteArray);
+        os.flush();
+        os.close();
+        */
+
+        response.setContentType("image/jpg");
+        OutputStream os = response.getOutputStream();
+        os.write(photoService.getById(id).getPhoto());
         os.flush();
         os.close();
     }
@@ -75,10 +83,28 @@ public class PhotoController extends HttpServlet {
         request.setCharacterEncoding("Utf-8");
         Photo photo = new Photo();
 
-        try {
+        //MySQL
+        /*try {
             InputStream st = request.getPart("photo").getInputStream();
             Blob blob = photoService.createBlob(st);
             photo.setPhoto(blob);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+
+        photo.setExtention("png");
+        List<News> list = new ArrayList<>();
+        list.add(newsService.getById(id));
+        photo.setNews(list);
+        photoService.add(photo);
+        */
+
+        try {
+            InputStream st = request.getPart("photo").getInputStream();
+
+            byte byteArray[] = new byte[st.available()];
+            st.read(byteArray);
+            photo.setPhoto(byteArray);
         } catch (ServletException e) {
             e.printStackTrace();
         }

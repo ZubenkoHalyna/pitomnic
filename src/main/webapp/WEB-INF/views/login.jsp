@@ -6,7 +6,8 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <title><spring:message code="label.title" /></title>
+    <title><spring:message code="label.login" /></title>
+    <link href="../../favicon.ico" rel="shortcut icon"  />
 </head>
 <body>
 

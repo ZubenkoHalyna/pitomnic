@@ -24,6 +24,8 @@
         <beans:property name="suffix" value=".jsp" />
     </beans:bean>
 
+    <mvc:default-servlet-handler />
+
     <!-- Файл с настройками контроллеров -->
     <beans:import resource="controllers.xml" />
 

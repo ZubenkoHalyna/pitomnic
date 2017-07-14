@@ -10,7 +10,10 @@
             /WEB-INF/spring/root-context.xml
         </param-value>
     </context-param>
-
+    <mime-mapping>
+        <extension>ico</extension>
+        <mime-type>image/x-icon</mime-type>
+    </mime-mapping>
     <!-- Создаёт контейнер Spring, разделяемый всеми сервлетами и фильтрами -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
