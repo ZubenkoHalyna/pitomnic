@@ -46,7 +46,7 @@
                     <td><form:label path="description">
                         <spring:message code="label.description" />
                     </form:label></td>
-                    <td><form:input path="description" /></td>
+                    <td><form:input  path="description" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit"

@@ -20,7 +20,7 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 
-    <bean class="net.schastny.contactmanager.validators.RegistrationValidator" scope="singleton">
+    <bean class="net.validators.RegistrationValidator" scope="singleton">
     </bean>
 
 
@@ -48,7 +48,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="packagesToScan">
             <list>
-                <value>net.schastny.contactmanager.domain</value>
+                <value>net.domain</value>
             </list>
         </property>
         <property name="hibernateProperties">

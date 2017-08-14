@@ -28,7 +28,7 @@
 
         <h2>${news.title}</h2>
             ${news.description}</td>
-
+        <p>
         <c:if test="${!empty photoIdList}">
 
                 <c:forEach items="${photoIdList}" var="photoid">
@@ -38,6 +38,7 @@
                 </c:forEach>
 
         </c:if>
+
     </div>
 </section>
 </body>
