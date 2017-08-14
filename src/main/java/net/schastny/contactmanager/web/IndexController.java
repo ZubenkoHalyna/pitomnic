@@ -9,11 +9,11 @@ import java.util.Map;
 
 @Controller
 public class IndexController {
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+   /* public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //registry.setOrder(Integer.MAX_VALUE);
         registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/favicon.ico");
         // .setCachePeriod(3600);
-    }
+    }*/
 
     @RequestMapping("/")
     public String home() {
@@ -28,6 +28,11 @@ public class IndexController {
     @RequestMapping("/login")
     public String login(Map<String, Object> map) {
         return "login";
+    }
+
+    @RequestMapping("/error403")
+    public String error403(Map<String, Object> map) {
+        return "error403";
     }
 
     @RequestMapping("/registration")

@@ -8,12 +8,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <title><spring:message code="label.login" /></title>
     <link href="../../favicon.ico" rel="shortcut icon"  />
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 </head>
 <body>
-
-<a href="<c:url value="/index" />">
-    <spring:message code="label.contacts" />
-</a><br/>
+<section>
+    <section:before></section:before>
+<div class="maindiv">
 
 <p></p>
 <a href="?lang=en">en</a>|
@@ -46,5 +46,7 @@
         </tr>
     </table>
 </form>
+</div>
+</section>
 </body>
 </html>

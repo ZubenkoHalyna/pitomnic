@@ -9,8 +9,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <title><spring:message code="label.news" /></title>
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link href="<c:url value="/resources/css/fullScreen.css" />" rel="stylesheet">
 </head>
 <body>
+<section>
+    <section:before></section:before>
+    <div class="maindiv">
 
 <a href="<c:url value="/logout" />">
     <spring:message code="label.logout" />
@@ -44,5 +48,7 @@
 <a href="/add/news"><button type="button"> <spring:message code="label.postNews" /></button></a>
 
 
+    </div>
+</section>
 </body>
 </html>

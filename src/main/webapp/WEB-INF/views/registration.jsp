@@ -9,8 +9,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><spring:message code="label.registration" /></title>
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
+    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 </head>
 <body>
+<section>
+    <section:before></section:before>
+    <div class="maindiv">
 
 <a href="<c:url value="/logout" />">
     <spring:message code="label.logout" />
@@ -56,5 +60,7 @@
         </tr>
     </table>
 </form:form>
+</div>
+</section>
 </body>
 </html>

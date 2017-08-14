@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-    <title>${news.title}</title>
+    <title><spring:message code="label.error" /></title>
     <link rel="shortcut icon" href="../../favicon.ico" type="image/x-icon" />
     <link href="<c:url value="/resources/css/fullScreen.css" />" rel="stylesheet">
 </head>
@@ -15,29 +15,15 @@
 <section>
     <section:before></section:before>
     <div class="maindiv">
-        <a href="<c:url value="/logout" />">
-            <spring:message code="label.logout" />
-        </a>|
-        <a href="<c:url value="/news" />">
-            <spring:message code="label.news" />
-        </a>
-        <p></p>
-        <a href="?lang=en">en</a>|
-        <a href="?lang=ru">ru</a>
-        <p></p>
+    <a href="<c:url value="/news" />">
+        <spring:message code="label.news" />
+    </a>
 
-        <h2>${news.title}</h2>
-            ${news.description}</td>
-
-        <c:if test="${!empty photoIdList}">
-
-                <c:forEach items="${photoIdList}" var="photoid">
-
-                        <div style="padding: 2px; float: left; width: 100px;"><img src="../../photo/${photoid}/getPhoto" width="100"/></div>
-
-                </c:forEach>
-
-        </c:if>
+    <p></p>
+    <a href="?lang=en">en</a>|
+    <a href="?lang=ru">ru</a>
+    <p></p>
+        <spring:message code="label.error403" />
     </div>
 </section>
 </body>
