@@ -37,7 +37,7 @@
 
     <servlet>
         <servlet-name>PhotoController</servlet-name>
-        <servlet-class>net.schastny.contactmanager.web.PhotoController</servlet-class>
+        <servlet-class>net.gala.web.PhotoController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>PhotoController</servlet-name>
