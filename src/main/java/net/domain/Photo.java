@@ -11,14 +11,8 @@ public class Photo {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
 
-   // @Lob
-    @Column(name ="photo")//, columnDefinition="BLOB")
+    @Column(name ="photo")
     private byte[] photo;
-    //MySQL
-    //private Blob photo;
-
-    @Column(name = "extention")
-    private String extention;
 
     @ManyToMany(cascade = CascadeType.REFRESH)
     @JoinTable(
@@ -45,14 +39,6 @@ public class Photo {
 
     public void setPhoto(byte[] photo) {
         this.photo = photo;
-    }
-
-    public String getExtention() {
-        return extention;
-    }
-
-    public void setExtention(String extention) {
-        this.extention = extention;
     }
 
     public List<News> getNews() {

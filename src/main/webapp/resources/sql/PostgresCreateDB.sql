@@ -10,8 +10,7 @@ CREATE TABLE news
 CREATE TABLE photo
 (
   id SERIAL PRIMARY KEY,
-  photo BYTEA,
-  extention VARCHAR(4)
+  photo BYTEA
 );
 
 CREATE TABLE newsphoto

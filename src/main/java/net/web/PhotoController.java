@@ -26,9 +26,9 @@ import java.util.List;
 @MultipartConfig
 public class PhotoController extends HttpServlet {
     @Autowired
-    PhotoService photoService;
+    private PhotoService photoService;
     @Autowired
-    NewsService newsService;
+    private NewsService newsService;
 
     public void init(ServletConfig config) {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
@@ -40,24 +40,7 @@ public class PhotoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         int id = Integer.parseInt(request.getParameter("id"));
 
-        //MySQL
-        /*Blob blob = photoService.getById(id).getPhoto();
-
-        byte byteArray[] = new byte[0];
-        try {
-            byteArray = blob.getBytes(1, (int)blob.length());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        response.setContentType("image/jpg");
-        OutputStream os = response.getOutputStream();
-        os.write(byteArray);
-        os.flush();
-        os.close();
-        */
-
-        response.setContentType("image/jpg");
+        response.setContentType("image");
         OutputStream os = response.getOutputStream();
         os.write(photoService.getById(id).getPhoto());
         os.flush();
@@ -75,22 +58,6 @@ public class PhotoController extends HttpServlet {
         request.setCharacterEncoding("Utf-8");
         Photo photo = new Photo();
 
-        //MySQL
-        /*try {
-            InputStream st = request.getPart("photo").getInputStream();
-            Blob blob = photoService.createBlob(st);
-            photo.setPhoto(blob);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
-
-        photo.setExtention("png");
-        List<News> list = new ArrayList<>();
-        list.add(newsService.getById(id));
-        photo.setNews(list);
-        photoService.add(photo);
-        */
-
         try {
             InputStream st = request.getPart("photo").getInputStream();
 
@@ -101,11 +68,9 @@ public class PhotoController extends HttpServlet {
             e.printStackTrace();
         }
 
-        photo.setExtention("png");
         List<News> list = new ArrayList<>();
         list.add(newsService.getById(id));
         photo.setNews(list);
         photoService.add(photo);
     }
-
 }
