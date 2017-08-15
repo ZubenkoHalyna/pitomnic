@@ -5,6 +5,7 @@ import net.service.NewsService;
 import net.service.PhotoService;
 import net.domain.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,7 +27,7 @@ public class NewsController {
     private PhotoService photoService;
 
     @RequestMapping("/delete/news/{newsId}")
-    public String deleteContact(@PathVariable("newsId") Integer newsId) {
+    public String deleteNews(@PathVariable("newsId") Integer newsId) {
 
         newsService.remove(newsId);
 
@@ -34,7 +35,7 @@ public class NewsController {
     }
 
     @RequestMapping("/delete/photo/{photoId}/{newsId}")
-    public String deletePhoto(@PathVariable("photoId") Integer photoId, @PathVariable("newsId") Integer newsId, Model model) {
+    public String deletePhotoInNews(@PathVariable("photoId") Integer photoId, @PathVariable("newsId") Integer newsId, Model model) {
 
         photoService.remove(photoId);
 
@@ -42,23 +43,20 @@ public class NewsController {
     }
 
     @RequestMapping("/photo/{photoId}/getPhoto")
-    public String showUser(@PathVariable("photoId") int photoId, Model model) {
+    public String showPhoto(@PathVariable("photoId") int photoId, Model model) {
         model.addAttribute("id", photoId);
 
         return "redirect:/add/photo";
     }
 
     @RequestMapping("/news")
-    public String deleteContact(Map<String, Object> map) {
-
+    public String showNews(Map<String, Object> map) {
         map.put("newsList", newsService.getAll());
-
         return "news";
     }
 
     @RequestMapping(value = "/add/news", method = RequestMethod.GET)
-    public String listContacts(Map<String, Object> map) {
-
+    public String addNews(Map<String, Object> map) {
         map.put("news", new News());
         map.put("photolist", new ArrayList<Photo>());
 
@@ -67,7 +65,6 @@ public class NewsController {
 
     @RequestMapping(value = "/info/news/{newsId}", method = RequestMethod.GET)
     public String infoNews(Map<String, Object> map, @PathVariable("newsId") Integer newsId) {
-
         map.put("news", newsService.getById(newsId));
         map.put("photoIdList", photoService.getByNewsId(newsId));
 
@@ -76,7 +73,6 @@ public class NewsController {
 
     @RequestMapping(value = "/edit/news/{newsId}", method = RequestMethod.GET)
     public String editNews(Map<String, Object> map, @PathVariable("newsId") Integer newsId) {
-
         map.put("news", newsService.getById(newsId));
         map.put("photoIdList", photoService.getByNewsId(newsId));
 
@@ -84,7 +80,7 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/add/news", method = RequestMethod.POST)
-    public String addContact(@ModelAttribute("news") News news,
+    public String addNews(@ModelAttribute("news") News news,
                              BindingResult result) {
 
         news.setPostDate(new Date());
@@ -94,7 +90,7 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/update/news", method = RequestMethod.POST)
-    public String updateContact(@ModelAttribute("news") News news,
+    public String updateNews(@ModelAttribute("news") News news,
                              BindingResult result) {
 
         newsService.update(news);

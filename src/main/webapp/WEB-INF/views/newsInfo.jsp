@@ -2,6 +2,7 @@
          pageEncoding="utf8"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,12 +16,19 @@
 <section>
     <section:before></section:before>
     <div class="maindiv">
-        <a href="<c:url value="/logout" />">
-            <spring:message code="label.logout" />
-        </a>|
         <a href="<c:url value="/news" />">
             <spring:message code="label.news" />
-        </a>
+        </a>|
+        <sec:authorize access="isAuthenticated()">
+            <a href="<c:url value="/logout" />">
+                <spring:message code="label.logout" />
+            </a>
+        </sec:authorize>
+        <sec:authorize access="isAnonymous()">
+            <a href="<c:url value="/login" />">
+                <spring:message code="label.login" />
+            </a>
+        </sec:authorize>
         <p></p>
         <a href="?lang=en">en</a>|
         <a href="?lang=ru">ru</a>
