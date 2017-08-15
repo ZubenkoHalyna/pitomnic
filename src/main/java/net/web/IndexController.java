@@ -8,12 +8,6 @@ import java.util.Map;
 
 @Controller
 public class IndexController {
-   /* public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //registry.setOrder(Integer.MAX_VALUE);
-        registry.addResourceHandler("/favicon.ico").addResourceLocations("classpath:/favicon.ico");
-        // .setCachePeriod(3600);
-    }*/
-
     @RequestMapping("/")
     public String home() {
         return "redirect:/index";

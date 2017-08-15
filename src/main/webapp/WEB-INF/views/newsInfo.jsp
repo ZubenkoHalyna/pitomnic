@@ -41,7 +41,7 @@
 
                 <c:forEach items="${photoIdList}" var="photoid">
 
-                        <div style="padding: 2px; float: left; width: 100px;"><img src="../../photo/${photoid}/getPhoto" width="100"/></div>
+                        <div style="padding: 2px; float: left; width: 200px;"><img src="../../photo/${photoid}/getPhoto" width="200"/></div>
 
                 </c:forEach>
 

@@ -30,6 +30,13 @@ public class UserController {
     @Autowired
     private RegistrationValidator registrationValidator;
 
+    @RequestMapping(value = "/add/user", method = RequestMethod.GET)
+    public String registration(Map<String, Object> map) {
+        map.put("registrationForm", new RegistrationForm());
+
+        return "redirect:../registration";
+    }
+
     @RequestMapping(value = "/add/user", method = RequestMethod.POST)
     public String addUser(Locale locale, @ModelAttribute("registrationForm") RegistrationForm registrationForm,
                           BindingResult result) {
@@ -44,18 +51,11 @@ public class UserController {
         user.setPassword(
                 Hashing.sha1().hashString(registrationForm.getPassword(), Charsets.UTF_8 ).toString());
         user.setEnabled(true);
-        List<Role> roles = new ArrayList<Role>();
+        List<Role> roles = new ArrayList<>();
         roles.add(roleService.getById(2));
         user.setRoles(roles);
         userService.add(user);
 
         return "redirect:/login";
-    }
-
-    @RequestMapping(value = "/add/user", method = RequestMethod.GET)
-    public String registration(Map<String, Object> map) {
-        map.put("registrationForm", new RegistrationForm());
-
-        return "redirect:../registration";
     }
 }
