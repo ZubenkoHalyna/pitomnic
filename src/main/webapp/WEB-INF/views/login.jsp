@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf8">
     <title><spring:message code="label.login" /></title>
     <link href="../../favicon.ico" rel="shortcut icon"  />
-    <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+    <link href="<c:url value="/resources/css/centerScreen.css" />" rel="stylesheet">
 </head>
 <body>
 <section>
