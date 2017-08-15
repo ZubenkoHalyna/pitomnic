@@ -20,7 +20,7 @@ public class IndexController {
     }
 
     @RequestMapping("/index")
-    public String listContacts(Map<String, Object> map) {
+    public String index(Map<String, Object> map) {
         return "redirect:/news";
     }
 
