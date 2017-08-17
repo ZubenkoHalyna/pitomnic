@@ -1,6 +1,6 @@
 package net.dao;
 
-import net.domain.News;
+import net.model.News;
 
 import java.util.List;
 

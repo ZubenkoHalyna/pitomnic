@@ -1,6 +1,6 @@
 package net.dao;
 
-import net.domain.News;
+import net.model.News;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

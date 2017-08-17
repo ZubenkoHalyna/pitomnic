@@ -1,7 +1,7 @@
 package net.service;
 
 import net.dao.RoleDAO;
-import net.domain.Role;
+import net.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 

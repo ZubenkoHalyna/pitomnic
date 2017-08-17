@@ -1,6 +1,6 @@
 package net.service;
 
-import net.domain.Role;
+import net.model.Role;
 
 import java.util.List;
 

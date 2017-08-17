@@ -1,11 +1,11 @@
-package net.web;
+package net.controllers;
 
 import com.google.common.base.Charsets;
 import com.google.common.hash.Hashing;
-import net.domain.User;
+import net.model.User;
 import net.service.UserService;
 import net.validators.RegistrationValidator;
-import net.domain.Role;
+import net.model.Role;
 import net.service.RoleService;
 import net.validators.RegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;

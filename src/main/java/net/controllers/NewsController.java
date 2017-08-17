@@ -1,9 +1,9 @@
-package net.web;
+package net.controllers;
 
-import net.domain.News;
+import net.model.News;
 import net.service.NewsService;
 import net.service.PhotoService;
-import net.domain.Photo;
+import net.model.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

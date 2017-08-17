@@ -1,9 +1,10 @@
-package net.web;
+package net.controllers;
 
-import net.domain.News;
+import net.model.News;
 import net.service.NewsService;
 import net.service.PhotoService;
-import net.domain.Photo;
+import net.model.Photo;
+import org.jboss.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,21 +38,27 @@ public class PhotoController extends HttpServlet {
 
     @Override
     @RequestMapping(value = "/add/photo/", method = RequestMethod.GET)
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
 
         response.setContentType("image");
-        OutputStream os = response.getOutputStream();
-        os.write(photoService.getById(id).getPhoto());
-        os.flush();
-        os.close();
+        try(OutputStream os = response.getOutputStream()) {
+            os.write(photoService.getById(id).getPhoto());
+            os.flush();
+        } catch (IOException e) {
+            Logger.getLogger(PhotoController.class).log(Logger.Level.ERROR,e.getMessage());
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-        process(request, id);
-        response.sendRedirect("/edit/news/"+id);
+        try {
+            process(request, id);
+            response.sendRedirect("/edit/news/"+id);
+        } catch (IOException e) {
+            Logger.getLogger(PhotoController.class).log(Logger.Level.ERROR,e.getMessage());
+        }
     }
 
     void process(HttpServletRequest request, int id) throws IOException {
@@ -65,7 +72,7 @@ public class PhotoController extends HttpServlet {
             st.read(byteArray);
             photo.setPhoto(byteArray);
         } catch (ServletException e) {
-            e.printStackTrace();
+            Logger.getLogger(PhotoController.class).log(Logger.Level.ERROR, e.getMessage());
         }
 
         List<News> list = new ArrayList<>();

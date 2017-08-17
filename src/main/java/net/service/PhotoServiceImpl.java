@@ -1,7 +1,7 @@
 package net.service;
 
 import net.dao.PhotoDAO;
-import net.domain.Photo;
+import net.model.Photo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

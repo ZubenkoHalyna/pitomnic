@@ -1,7 +1,7 @@
 package net.service;
 
 import net.dao.UserDAO;
-import net.domain.User;
+import net.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 

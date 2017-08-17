@@ -1,4 +1,4 @@
-package net.web;
+package net.controllers;
 
 import net.validators.RegistrationForm;
 import org.springframework.stereotype.Controller;

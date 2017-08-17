@@ -1,7 +1,7 @@
 package net.service;
 
 import net.dao.NewsDAO;
-import net.domain.News;
+import net.model.News;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

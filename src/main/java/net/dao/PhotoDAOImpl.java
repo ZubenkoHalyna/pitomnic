@@ -1,6 +1,6 @@
 package net.dao;
 
-import net.domain.Photo;
+import net.model.Photo;
 import org.hibernate.Hibernate;
 import org.hibernate.SessionFactory;
 import org.hibernate.engine.jdbc.connections.spi.ConnectionProvider;

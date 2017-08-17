@@ -1,6 +1,6 @@
 package net.dao;
 
-import net.domain.Photo;
+import net.model.Photo;
 
 import java.io.InputStream;
 import java.sql.Blob;

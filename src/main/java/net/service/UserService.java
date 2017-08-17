@@ -1,6 +1,6 @@
 package net.service;
 
-import net.domain.User;
+import net.model.User;
 
 import java.util.List;
 
